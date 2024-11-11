@@ -3695,11 +3695,10 @@ local function teleportKunaiToPlayerHead(kunai, playerName)
         if humanoid then
             local head = character:FindFirstChild("Head")
             if head then
-                local tweenInfo = TweenInfo.new(0.001, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-                local targetCFrame = head.CFrame
-                local tween = TweenService:Create(kunai, tweenInfo, {CFrame = targetCFrame})
-                tween:Play()
-                teleportedKunais[kunai] = true
+                kunai.CanCollide = false
+                            kunai.Velocity = Vector3.new(0, 0, 0)
+                            kunai.CFrame = head.CFrame
+                            teleportedKunais[kunai] = true
             end
         end
     end
