@@ -4092,11 +4092,9 @@ TextButton_31.MouseButton1Click:Connect(function()
 						local targetHead = targetPlayer.Character:FindFirstChild("Head")
 						if targetHead then
 							thrownKunai.CanCollide = false
-							local tweenInfo = TweenInfo.new(0.00001, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-							local targetCFrame = targetHead.CFrame
-							local tween = TweenService:Create(thrownKunai, tweenInfo, {CFrame = targetCFrame})
-							tween:Play()
-							game.Debris:AddItem(thrownKunai, 1)
+				                        thrownKunai.Velocity = Vector3.new(0, 0, 0)
+				                        thrownKunai.CFrame = targetHead.CFrame
+				                        game.Debris:AddItem(thrownKunai, 1)
 						end
 					end
 				end
